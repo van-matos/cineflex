@@ -51,7 +51,7 @@ body {
 
 .catalog {
     width: 100%;
-    
+
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -60,7 +60,6 @@ body {
 .movie {
     width: 145px;
     height: 209px;
-
     margin: 0 13px 10px 13px;
     padding: 8px;
 
@@ -71,4 +70,46 @@ body {
 .movie img {
     width: 100%;
     height: 100%;
+}
+
+.showtime-date {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 0 25px;
+}
+
+.showtime-date p {
+    margin-bottom: 20px;
+
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 0.02em;
+    color: #293845;
+}
+
+.showtime-times {
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.showtime-times .button {
+    width: 82px;
+    height: 43px;
+    margin-right: 8px;
+
+    background: #E8833A;
+    border-radius: 3px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
 }
