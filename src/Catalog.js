@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
+import styled from "styled-components";
 
 import Movie from './Movie';
 
@@ -14,9 +15,17 @@ export default function Catalog() {
     return (
         <div className="content">
             <div className="instruction">Selecione o filme</div>
-            <div className="catalog"> 
+            <MovieList> 
                 {movies.map( (movie) => <Movie key={movie.id} id={movie.id} title={movie.title} posterURL={movie.posterURL} overviwe={movie.overviwe} release={movie.releaseDate} />)}
-            </div>
+            </MovieList>
         </div>
     )
 }
+
+const MovieList = styled.div `
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+`
