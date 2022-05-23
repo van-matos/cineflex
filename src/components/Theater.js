@@ -30,7 +30,6 @@ export default function Theater({ footer, setFooter }) {
             const booking = {ids: selection, name, cpf}
             setFooter({...footer, booking: booking})
             const promise = axios.post("https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many", booking);
-            console.log(booking);
             promise.then(navigate('/sucesso'));
         }
     }

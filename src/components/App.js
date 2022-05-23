@@ -2,6 +2,9 @@ import { BrowserRouter, Routes, Route} from "react-router-dom";
 import { useState } from "react";
 import styled from "styled-components";
 
+import "../css/reset.css";
+import "../css/style.css";
+
 import Catalog from './Catalog';
 import Showtimes from './Showtimes';
 import Theater from './Theater';
