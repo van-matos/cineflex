@@ -16,7 +16,7 @@ export default function Catalog() {
         <div className="content">
             <div className="instruction">Selecione o filme</div>
             <MovieList> 
-                {movies.map( (movie) => <Movie key={movie.id} id={movie.id} title={movie.title} posterURL={movie.posterURL} overview={movie.overview} release={movie.releaseDate} />)}
+                {movies.map( (movie) => <Movie key={movie.id} id={movie.id} posterURL={movie.posterURL} />)}
             </MovieList>
         </div>
     )

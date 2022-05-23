@@ -13,8 +13,10 @@ export default function App() {
         posterURL: "",
         title: "",
         weekday: "",
+        date: "",
         showtime: "",
-        book: {}
+        seats: [],
+        booking: {}
     });
     
     return (
@@ -26,7 +28,7 @@ export default function App() {
                 <Route path="/" element={<Catalog />} />
                 <Route path="/sessoes/:movieId" element={<Showtimes footer={footer} setFooter={setFooter} />} />
                 <Route path="/assentos/:showtimeId" element={<Theater footer={footer} setFooter={setFooter} />} />
-                <Route path="/sucesso" element={<Success title={footer.title} weekday={footer.weekday} showtime={footer.showtime} booking={footer.booking} footer={footer} setFooter={setFooter} />} />
+                <Route path="/sucesso" element={<Success footer={footer} setFooter={setFooter} />} />
             </Routes>
             <Footer posterUrl={footer.posterURL} title={footer.title} weekday={footer.weekday} showtime={footer.showtime} />
         </BrowserRouter>

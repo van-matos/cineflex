@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-function selectSeat(isAvailable, color, setColor, setBorder, id, selection, setSelection) {
+function selectSeat(isAvailable, color, setColor, setBorder, id, name, selection, setSelection) {
     if (isAvailable) {
         if (color === "#C3CFD9") {
             setColor("#8DD7CF");
@@ -24,7 +24,7 @@ export default function Seat({ id, name, available, selection, setSelection }) {
     const [border, setBorder] = useState(available ? "#808F9D" : "#F7C52B")
 
     return (
-        <SeatNum onClick={() => selectSeat(available, color, setColor, setBorder, id, selection, setSelection)} color={color} border={border} >
+        <SeatNum onClick={() => selectSeat(available, color, setColor, setBorder, id, name, selection, setSelection)} color={color} border={border} >
             { name }
         </SeatNum>
     );
