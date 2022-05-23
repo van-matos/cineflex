@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
@@ -11,6 +11,7 @@ export default function Theater({ footer, setFooter }) {
     const [selection, setSelection] = useState([]);
     const [name, setName] = useState("");
     const [cpf, setCpf] = useState("");
+    const navigate = useNavigate();
 
     function response(data) {
         setSeats(data.seats);
@@ -24,9 +25,13 @@ export default function Theater({ footer, setFooter }) {
 
     function booking(event) {
         event.preventDefault();
-        const booking = {ids: selection, name, cpf}
-        const promise = axios.post("https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many", booking);
-        promise.then(() => alert("Success!"));
+        
+        if (selection.length) {
+            const booking = {ids: selection, name, cpf}
+            setFooter({...footer, booking: booking})
+            const promise = axios.post("https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many", booking);
+            promise.then(navigate('/sucesso'));
+        }
     }
 
     return (

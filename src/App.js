@@ -2,17 +2,19 @@ import { BrowserRouter, Routes, Route} from "react-router-dom";
 import { useState } from "react";
 import styled from "styled-components";
 
-import Catalog from "./Catalog";
+import Catalog from './Catalog';
 import Showtimes from './Showtimes';
 import Theater from './Theater';
-import Footer from "./Footer";
+import Footer from './Footer';
+import Success from './Success';
 
 export default function App() {
     const [footer, setFooter] = useState( {
         posterURL: "",
         title: "",
         weekday: "",
-        showtime: ""
+        showtime: "",
+        book: {}
     });
     
     return (
@@ -24,6 +26,7 @@ export default function App() {
                 <Route path="/" element={<Catalog />} />
                 <Route path="/sessoes/:movieId" element={<Showtimes footer={footer} setFooter={setFooter} />} />
                 <Route path="/assentos/:showtimeId" element={<Theater footer={footer} setFooter={setFooter} />} />
+                <Route path="/sucesso" element={<Success title={footer.title} weekday={footer.weekday} showtime={footer.showtime} booking={footer.booking} footer={footer} setFooter={setFooter} />} />
             </Routes>
             <Footer posterUrl={footer.posterURL} title={footer.title} weekday={footer.weekday} showtime={footer.showtime} />
         </BrowserRouter>
