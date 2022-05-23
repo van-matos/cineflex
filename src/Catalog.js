@@ -8,15 +8,15 @@ export default function Catalog() {
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
-        const promisse = axios.get("https://mock-api.driven.com.br/api/v5/cineflex/movies");
-        promisse.then((response) => setMovies(response.data));
+        const promise = axios.get("https://mock-api.driven.com.br/api/v5/cineflex/movies");
+        promise.then((response) => setMovies(response.data));
     }, []);
 
     return (
         <div className="content">
             <div className="instruction">Selecione o filme</div>
             <MovieList> 
-                {movies.map( (movie) => <Movie key={movie.id} id={movie.id} title={movie.title} posterURL={movie.posterURL} overviwe={movie.overviwe} release={movie.releaseDate} />)}
+                {movies.map( (movie) => <Movie key={movie.id} id={movie.id} title={movie.title} posterURL={movie.posterURL} overview={movie.overview} release={movie.releaseDate} />)}
             </MovieList>
         </div>
     )

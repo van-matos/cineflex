@@ -5,17 +5,22 @@ import styled from "styled-components";
 
 import Seat from './Seat';
 
-export default function Theater() {
+export default function Theater({ footer, setFooter }) {
     const { showtimeId } = useParams();
     const [seats, setSeats] = useState([]);
     const [selection, setSelection] = useState([]);
     const [name, setName] = useState("");
     const [cpf, setCpf] = useState("");
 
+    function response(data) {
+        setSeats(data.seats);
+        setFooter({...footer, weekday: data.day.weekday, showtime: data.name});
+    }
+
     useEffect(() => {
         const promise = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${showtimeId}/seats`);
-        promise.then((response) => setSeats(response.data.seats));  
-    }, [showtimeId]);
+        promise.then((r) => response(r.data));
+    }, []);
 
     function booking(event) {
         event.preventDefault();

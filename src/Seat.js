@@ -1,8 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-function selectSeat(isAvaliable, color, setColor, setBorder, id, selection, setSelection) {
-    if (isAvaliable) {
+function selectSeat(isAvailable, color, setColor, setBorder, id, selection, setSelection) {
+    if (isAvailable) {
         if (color === "#C3CFD9") {
             setColor("#8DD7CF");
             setBorder("#45BDB0");
